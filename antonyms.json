@@ -1,0 +1,31 @@
+[
+  {
+    "_id": "623ea2b8781b2aed8c2b1195",
+    "startWord": "hot",
+    "endWord": "cold",
+    "users": [
+      { "name": "jared", "score": 5 },
+      { "name": "jared", "score": 5 },
+      { "name": "aubrey", "score": 6 }
+    ],
+    "__v": 2
+  },
+  {
+    "_id": "623ed72878a8dfecbe9ca773",
+    "startWord": "fast",
+    "endWord": "slow",
+    "users": [],
+    "__v": 0
+  },
+  {
+    "_id": "623edd8e97a826a588312ffb",
+    "startWord": "well",
+    "endWord": "ill",
+    "users": [
+      { "name": "Jared", "score": 12 },
+      { "name": "BJ", "score": 14 },
+      { "name": "bridge", "score": 13 }
+    ],
+    "__v": 3
+  }
+]
