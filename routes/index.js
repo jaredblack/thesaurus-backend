@@ -61,12 +61,7 @@ function addEntry(startWord, endWord, next) {
   return entry;
 }
 
-/* GET home page. */
-app.get("/", function (req, res, next) {
-  res.render("index", { title: "Express" });
-});
-
-app.get("/getEntry/:startWord/:endWord", function (req, res, next) {
+app.get("/api/getEntry/:startWord/:endWord", function (req, res, next) {
   LeaderboardEntry.find(
     { startWord: req.params.startWord, endWord: req.params.endWord },
     function (err, entry) {
@@ -80,19 +75,19 @@ app.get("/getEntry/:startWord/:endWord", function (req, res, next) {
   );
 });
 
-app.get("/getDaily", function (req, res, next) {
+app.get("/api/getDaily", function (req, res, next) {
   let currentTime = new Date();
   let days = Math.floor(currentTime / 8.64e7);
   let wordIndex = days % wordList.length;
   res.json(wordList[wordIndex]);
 });
 
-app.get("/getRandom", function (req, res, next) {
+app.get("/api/getRandom", function (req, res, next) {
   let wordIndex = Math.floor(Math.random() * wordList.length);
   res.json(wordList[wordIndex]);
 });
 
-app.post("/addUserScore", function (req, res, next) {
+app.post("/api/addUserScore", function (req, res, next) {
   LeaderboardEntry.find(
     { startWord: req.body.startWord, endWord: req.body.endWord },
     function (err, foundEntry) {
@@ -117,7 +112,7 @@ app.post("/addUserScore", function (req, res, next) {
   );
 });
 
-app.get("/allLeaderboards", function (req, res, next) {
+app.get("/api/allLeaderboards", function (req, res, next) {
   LeaderboardEntry.find(function (err, foundEntries) {
     if (err) {
       return next(err);
@@ -126,7 +121,7 @@ app.get("/allLeaderboards", function (req, res, next) {
   });
 });
 
-app.delete("/delete/:startWord/:endWord", function (req, res, next) {
+app.delete("/api/delete/:startWord/:endWord", function (req, res, next) {
   LeaderboardEntry.deleteOne(
     { startWord: req.params.startWord, endWord: req.params.endWord },
     function (err, dbRes) {
