@@ -5,7 +5,11 @@ const LeaderboardEntrySchema = new mongoose.Schema({
   users: Array,
 });
 LeaderboardEntrySchema.methods.addUser = function (name, score, cb) {
-  this.users.push({ name: name, score: score });
+  this.users.push({
+    name: name,
+    score: score,
+    id: new mongoose.Types.ObjectId(),
+  });
   this.save(cb);
 };
 mongoose.model("LeaderboardEntry", LeaderboardEntrySchema);
