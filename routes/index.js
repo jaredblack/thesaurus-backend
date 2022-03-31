@@ -41,7 +41,7 @@ const wordList = [
   { word: "cheap", antonym: "expensive" },
 ];
 
-const dbURL = "mongodb://localhost/thesaurus-game";
+const dbURL = "mongodb+srv://artifex:greenmongoleaf@cluster0.5pfow.mongodb.net/thesaurdle";
 mongoose.connect(dbURL);
 
 app.use(express.json());
